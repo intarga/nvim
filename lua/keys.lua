@@ -29,7 +29,7 @@ function keys.setup()
 
     -- fzf
     map('n', '<Leader>f',     ':Files<Space>.<CR>', 	    n)
-    map('n', '<Leader>r',     ':Rg<Space>', 		        n)
+    map('n', '<Leader>r',     ':Rg<Space><C-R><C-W><CR>',   n)
 
     -- completion
     map('i', '<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]],	    ne)
