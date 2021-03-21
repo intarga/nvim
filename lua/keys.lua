@@ -32,7 +32,7 @@ function keys.setup()
     map('n', '<Leader>r',     ':Rg<Space><C-R><C-W><CR>',   n)
 
     -- completion
-    map('i', '<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]],	    ne)
+    map('i', '<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]],	        ne)
     map('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]],	    ne)
 
     -- lsp

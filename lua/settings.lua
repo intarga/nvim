@@ -8,7 +8,6 @@ function settings.setup()
     b.shiftwidth = indent
     b.tabstop = indent
 
-
     -- enable mouse in all modes
     o.mouse = 'a'
 

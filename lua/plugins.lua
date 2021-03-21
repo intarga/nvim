@@ -1,7 +1,7 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
--- Install packer automatically if we don't have it
+-- install packer automatically if we don't have it
 local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -36,6 +36,6 @@ return require('packer').startup(function()
     -- lsp
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/vim-vsnip-integ'
+    --use 'hrsh7th/vim-vsnip'
+    --use 'hrsh7th/vim-vsnip-integ'
 end)
