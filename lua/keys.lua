@@ -35,15 +35,15 @@ function keys.setup()
     map('i', '<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]],	    ne)
     map('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]],	    ne)
 
-    -- lspsaga
-    map('n', '<Leader>d', ':LspSagaDefPreview<CR>',	    ns)
-    map('n', '<Leader>g', ':LspSagaFinder<CR>',	    ns)
-    map('n', '<Leader>a', ':LspSagaCodeAction<CR>',	    ns)
-    map('n', '<Leader>h', '<cmd>lua vim.lsp.buf.hover()<CR>',	    ns)
-    map('n', '<Leader>s', '<cmd>lua require(\'lspsaga.signaturehelp\').signature_help()<CR>',	    ns)
-    map('n', '<Leader>n', ':LspSagaRename<CR>',	    ns)
-    map('n', '[e',        ':LspSagaDiagJumpPrev<CR>',   ns)
-    map('n', ']e',        ':LspSagaDiagJumpNext<CR>',   ns)
+    -- lsp
+    map('n', 'gd',          '<Cmd>lua vim.lsp.buf.definition()<CR>',            		    ns)
+    map('n', 'gD',          '<Cmd>lua vim.lsp.buf.declaration()<CR>', 		                ns)
+    map('n', 'gi',          '<Cmd>lua vim.lsp.buf.implementation()<CR>', 		            n)
+    map('n', 'gr',          '<Cmd>lua vim.lsp.buf.references()<CR>', 		                ns)
+    map('n', 'gh',          '<Cmd>lua vim.lsp.buf.hover()<CR>', 		                    ns)
+    map('n', '<Leader>e',   '<Cmd>lua vim.lsp.buf.diagnostic.show_line_diagnostics()<CR>',  ns)
+    map('n', '[d',          '<Cmd>lua vim.lsp.buf.diagnostic.goto_prev()<CR>', 		        ns)
+    map('n', ']d',          '<Cmd>lua vim.lsp.buf.diagnostic.goto_next()<CR>', 		        ns)
 end
 
 return keys

@@ -51,9 +51,9 @@ function settings.setup()
     }
 
     -- LSP
-    --require'lspconfig'.gopls.setup{on_attach=require'completion'.on_attach}
-    require'lspconfig'.gopls.setup{}
-    require'lspsaga'.init_lsp_saga()
+    local lspconfig = require'lspconfig'
+    lspconfig.gopls.setup{}
+    lspconfig.rust_analyzer.setup({})
 
     require'compe'.setup {
 	    enabled = true;

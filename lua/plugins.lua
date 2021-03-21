@@ -35,8 +35,6 @@ return require('packer').startup(function()
 
     -- lsp
     use 'neovim/nvim-lspconfig'
-    use 'glepnir/lspsaga.nvim'
-    --use 'nvim-lua/completion-nvim'
     use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
