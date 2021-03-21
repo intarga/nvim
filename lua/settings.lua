@@ -30,6 +30,12 @@ function settings.setup()
     -- redo when api is fixed...
     cmd('colorscheme brint')
 
+    -- lsp diagnostic signs
+    cmd('sign define LspDiagnosticsSignError text=> texthl=LspDiagnosticsSignError linehl= numhl=')
+    cmd('sign define LspDiagnosticsSignWarning text=! texthl=LspDiagnosticsSignWarning linehl= numhl=')
+    cmd('sign define LspDiagnosticsSignInformation text=i texthl=LspDiagnosticsSignInformation linehl= numhl=')
+    cmd('sign define LspDiagnosticsSignHint text=H texthl=LspDiagnosticsSignHint linehl= numhl=')
+
     -- airline
     cmd('let g:airline_powerline_fonts = 1')
     cmd('let g:airline_skip_empty_sections = 1')
