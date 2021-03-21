@@ -22,7 +22,7 @@ function keys.setup()
     --map('n', '<Leader>b',     ':buffers<CR>:buffer<Space>', n) -- version without fzf plugin
     map('n', '<Leader>b',     ':Buffers<CR>',               n) -- requires fzf
     map('n', '<Tab>',         ':bn<CR>',                    ns)
-    map('n', '<Leader><Tab>', ':bp<CR>',                    ns)
+    map('n', '<S-Tab>',       ':bp<CR>',                    ns)
     map('n', '<Leader>q',     ':bdelete<CR>', 	        	ns)
     map('n', '<Leader>o',     ':edit<Space>', 		        n)
     map('n', '<Leader>h',     ':set hidden<CR>', 		    ns)
