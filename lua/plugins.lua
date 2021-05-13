@@ -19,9 +19,6 @@ return require('packer').startup(function()
     -- autoclose brackets, quotes, etc.
     use 'tmsvg/pear-tree'
 
-    -- golang
-    use 'fatih/vim-go'
-
     -- fzf (binaries and plugin)
     use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
     use 'junegunn/fzf.vim'
