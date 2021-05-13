@@ -5,6 +5,7 @@ function settings.setup()
     -- tabs vs spaces
     local indent = 4
     b.expandtab = true
+    o.expandtab = true -- might become unnecessary?
     b.shiftwidth = indent
     b.tabstop = indent
 
