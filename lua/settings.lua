@@ -12,7 +12,7 @@ function settings.setup()
     -- enable mouse in all modes
     o.mouse = 'a'
 
-    -- use system clipboard
+    -- use system clipboard - may require installing xclip
     o.clipboard = 'unnamedplus'
 
     -- open splits below and to the right
@@ -45,7 +45,6 @@ function settings.setup()
     cmd('let g:airline_theme=\'monochrome\'')
     --cmd('let g:airline_solarized_bg=\'dark\'')
 
-
     -- Remove trailing whitespace on write
     cmd([[autocmd BufWritePre * %s/\s\+$//e]])
 
@@ -57,9 +56,9 @@ function settings.setup()
 
     -- Treesitter
     require'nvim-treesitter.configs'.setup {
-	    --checks parser is maintained
-	    ensure_installed = "maintained",
-	    highlight = { enable = true },
+        --checks parser is maintained
+        ensure_installed = "maintained",
+        highlight = { enable = true },
     }
 
     -- LSP
@@ -68,24 +67,24 @@ function settings.setup()
     lspconfig.rust_analyzer.setup({})
 
     require'compe'.setup {
-	    enabled = true;
-	    autocomplete = true;
-	    debug = false;
-	    min_length = 1;
-	    preselect = 'disable';
-	    throttle_time = 80;
-	    source_timeout = 200;
-	    incomplete_delay = 400;
-	    allow_prefix_unmatch = false;
+        enabled = true;
+        autocomplete = true;
+        debug = false;
+        min_length = 1;
+        preselect = 'disable';
+        throttle_time = 80;
+        source_timeout = 200;
+        incomplete_delay = 400;
+        allow_prefix_unmatch = false;
 
-	    source = {
-		    path = true;
-		    buffer = true;
-		    vsnip = true;
-		    nvim_lsp = true;
-		    nvim_lua = true;
-		    your_awesome_source = {};
-	    };
+        source = {
+            path = true;
+            buffer = true;
+            vsnip = true;
+            nvim_lsp = true;
+            nvim_lua = true;
+            your_awesome_source = {};
+        };
     }
 end
 

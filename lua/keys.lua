@@ -27,7 +27,7 @@ function keys.setup()
     map('n', '<Leader>o',     ':edit<Space>', 		        n)
     map('n', '<Leader>h',     ':set hidden<CR>', 		    ns)
 
-    -- fzf
+    -- fzf todo: Gfiles support?
     map('n', '<Leader>f',     ':Files<Space>.<CR>', 	    n)
     map('n', '<Leader>r',     ':Rg<Space><C-R><C-W><CR>',   n)
 
