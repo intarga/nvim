@@ -30,6 +30,9 @@ function settings.setup()
     -- redo when api is fixed...
     cmd('colorscheme brint')
 
+    -- python
+    cmd('let g:python3_host_prog="/usr/bin/python3"')
+
     -- lsp diagnostic signs
     cmd('sign define LspDiagnosticsSignError text=> texthl=LspDiagnosticsSignError linehl= numhl=')
     cmd('sign define LspDiagnosticsSignWarning text=! texthl=LspDiagnosticsSignWarning linehl= numhl=')
@@ -48,6 +51,9 @@ function settings.setup()
 
     -- Disable automatic commenting on newline
     cmd([[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]])
+
+    -- Autoformat on write
+    cmd([[au BufWrite * :Autoformat]])
 
     -- Treesitter
     require'nvim-treesitter.configs'.setup {

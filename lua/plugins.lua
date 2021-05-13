@@ -19,6 +19,9 @@ return require('packer').startup(function()
     -- autoclose brackets, quotes, etc.
     use 'tmsvg/pear-tree'
 
+    -- automatic formatting
+    use 'Chiel92/vim-autoformat'
+
     -- fzf (binaries and plugin)
     use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
     use 'junegunn/fzf.vim'
