@@ -52,7 +52,7 @@ function settings.setup()
     cmd([[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]])
 
     -- Autoformat on write
-    cmd([[au BufWrite * :Autoformat]])
+    cmd([[autocmd BufWrite *.rs,*.go,*.lua,*.py :Autoformat]])
 
     -- Treesitter
     require'nvim-treesitter.configs'.setup {
