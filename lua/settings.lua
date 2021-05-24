@@ -28,7 +28,7 @@ function settings.setup()
 
     -- colours!
     -- redo when api is fixed...
-    cmd('colorscheme brint')
+    cmd('colorscheme alnj')
 
     -- python
     cmd('let g:python3_host_prog="/usr/bin/python3"')
@@ -40,10 +40,9 @@ function settings.setup()
     cmd('sign define LspDiagnosticsSignHint text=H texthl=LspDiagnosticsSignHint linehl= numhl=')
 
     -- airline
-    cmd('let g:airline_powerline_fonts = 1')
+    cmd('let g:airline_powerline_fonts = 0')
     cmd('let g:airline_skip_empty_sections = 1')
-    cmd('let g:airline_theme=\'monochrome\'')
-    --cmd('let g:airline_solarized_bg=\'dark\'')
+    cmd('let g:airline_theme=\'solarized\'')
 
     -- Remove trailing whitespace on write
     cmd([[autocmd BufWritePre * %s/\s\+$//e]])
