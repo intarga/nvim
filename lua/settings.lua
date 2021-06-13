@@ -7,7 +7,9 @@ function settings.setup()
     b.expandtab = true
     o.expandtab = true -- might become unnecessary?
     b.shiftwidth = indent
+    o.shiftwidth = indent
     b.tabstop = indent
+    o.tabstop = indent
 
     -- enable mouse in all modes
     o.mouse = 'a'
