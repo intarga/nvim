@@ -22,6 +22,9 @@ return require('packer').startup(function()
     -- automatic formatting
     use 'Chiel92/vim-autoformat'
 
+    -- comment management
+    use 'b3nj5m1n/kommentary'
+
     -- fzf (binaries and plugin)
     use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
     use 'junegunn/fzf.vim'
