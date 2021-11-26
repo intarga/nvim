@@ -46,6 +46,9 @@ function settings.setup()
     cmd('let g:airline_skip_empty_sections = 1')
     cmd('let g:airline_theme=\'solarized\'')
 
+    -- Resume where we left off when opening a file
+    cmd([[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]])
+
     -- Remove trailing whitespace on write
     cmd([[autocmd BufWritePre * %s/\s\+$//e]])
 
