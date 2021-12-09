@@ -31,7 +31,7 @@ local disable_distribution_plugins = function()
     g.loaded_matchit           = 1
 
     -- highlight parenthesis matching that under the cursor
-    g.loaded_matchparen        = 1
+    -- g.loaded_matchparen        = 1
 
     -- convert buffer to html?
     g.loaded_2html_plugin      = 1
