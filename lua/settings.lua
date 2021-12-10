@@ -41,11 +41,6 @@ function settings.setup()
     cmd('sign define LspDiagnosticsSignInformation text=i texthl=LspDiagnosticsSignInformation linehl= numhl=')
     cmd('sign define LspDiagnosticsSignHint text=H texthl=LspDiagnosticsSignHint linehl= numhl=')
 
-    -- airline
-    cmd('let g:airline_powerline_fonts = 0')
-    cmd('let g:airline_skip_empty_sections = 1')
-    cmd('let g:airline_theme=\'solarized\'')
-
     -- Resume where we left off when opening a file
     cmd([[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]])
 
@@ -63,6 +58,63 @@ function settings.setup()
     -- Kommentary
     --vim.g.kommentary_create_default_mappings = false
     --require('kommentary.config').use_extended_mappings()
+
+    -- status line
+    local my16color = {
+        normal = {
+            a = { fg = 0, bg = 12, gui = 'bold' },
+            b = { fg = 0, bg = 4 },
+            c = { fg = NONE, bg = 0 },
+        },
+        insert = {
+            a = { fg = 0, bg = 13, gui = 'bold' },
+            b = { fg = 0, bg = 5 },
+        },
+        visual = {
+            a = { fg = 0, bg = 10, gui = 'bold' },
+            b = { fg = 0, bg = 2 },
+        },
+        replace = {
+            a = { fg = 0, bg = 11, gui = 'bold' },
+            b = { fg = 0, bg = 3 },
+        },
+    }
+
+    require'lualine'.setup {
+        options = {
+            theme = my16color,
+            component_separators = { left = '', right = ''},
+            section_separators = { left = '', right = ''},
+            always_divide_middle = true,
+        },
+        sections = {
+            lualine_a = {'mode'},
+            lualine_b = {'branch'},
+            lualine_c = {{'buffers', buffers_color = {
+                active = {fg = NONE},
+                inactive = {fg = 12},
+            }}},
+            lualine_x = {
+                {'diff', diff_color = {
+                    added = {fg = 2},
+                    modified = {fg = 3},
+                    removed = {fg = 5},
+                }},
+                {'diagnostics', icons_enabled = false, diagnostics_color = {
+                    error = {fg = 0, bg = 9},
+                    warn = {fg = 1},
+                    info = {fg = 3},
+                    hint = {fg = 4},
+                }},
+            },
+            lualine_y = {
+                'encoding',
+                {'filetype', color = {gui = 'bold'}},
+                {'fileformat', icons_enabled = false},
+            },
+            lualine_z = {'progress', 'location'}
+        },
+    }
 
     -- Treesitter
     require'nvim-treesitter.configs'.setup {

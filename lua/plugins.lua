@@ -30,8 +30,7 @@ return require('packer').startup(function()
     use 'junegunn/fzf.vim'
 
     -- status line
-    use 'vim-airline/vim-airline'
-    use 'vim-airline/vim-airline-themes'
+    use 'nvim-lualine/lualine.nvim'
 
     -- treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
