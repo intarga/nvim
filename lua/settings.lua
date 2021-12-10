@@ -55,6 +55,10 @@ function settings.setup()
     -- Autoformat on write
     cmd([[autocmd BufWrite *.rs,*.go,*.lua,*.py :Autoformat]])
 
+    -- disable matchparen in insert mode
+    cmd([[autocmd InsertEnter * NoMatchParen]])
+    cmd([[autocmd InsertLeave * DoMatchParen]])
+
     -- Kommentary
     --vim.g.kommentary_create_default_mappings = false
     --require('kommentary.config').use_extended_mappings()
