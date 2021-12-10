@@ -53,7 +53,9 @@ function settings.setup()
     cmd([[autocmd BufWritePre * %s/\s\+$//e]])
 
     -- Disable automatic commenting on newline
-    cmd([[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]])
+    --cmd([[autocmd FileType * setlocal formatoptions-=cro]])
+    cmd([[autocmd BufNewFile,BufRead,FileType,OptionSet * set formatoptions-=cro]])
+    cmd([[autocmd BufNewFile,BufRead,FileType,OptionSet * setlocal formatoptions-=cro]])
 
     -- Autoformat on write
     cmd([[autocmd BufWrite *.rs,*.go,*.lua,*.py :Autoformat]])
