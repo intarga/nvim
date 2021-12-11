@@ -30,7 +30,7 @@ highlight Todo		   ctermfg=1	ctermbg=NONE			guifg=#000080 guibg=#c0c000
 
 " language constructs
 
-highlight MatchParen   ctermfg=NONE ctermbg=1    cterm=bold
+highlight MatchParen   ctermfg=0    ctermbg=1    cterm=bold
 
 highlight Comment	   ctermfg=4				 cterm=none guifg=#808080
 highlight Constant	   ctermfg=1			     cterm=none guifg=#00ffff		   	    gui=none
