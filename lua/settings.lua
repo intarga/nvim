@@ -24,6 +24,8 @@ function settings.setup()
     -- line numbers
     w.number = true
     w.relativenumber = true
+    w.cursorline = true
+    w.cursorlineopt = "number"
 
     -- enable autocompletion
     o.completeopt = 'menu,menuone,noselect'
