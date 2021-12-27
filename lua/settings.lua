@@ -65,6 +65,26 @@ function settings.setup()
     --vim.g.kommentary_create_default_mappings = false
     --require('kommentary.config').use_extended_mappings()
 
+    local telescope = require('telescope')
+    telescope.setup {
+        defaults = require('telescope.themes').get_dropdown {
+            mappings = {
+                i = {
+                    ["<C-B>"] = "select_default",
+                }
+            }
+        },
+        extensions = {
+            fzf = {
+                fuzzy = true, -- false will only do exact matching
+                override_generic_sorter = true,
+                override_file_sorter = true,
+                case_mode = "smart_case",
+            }
+        }
+    }
+    telescope.load_extension('fzf')
+
     -- status line
     local my16color = {
         normal = {

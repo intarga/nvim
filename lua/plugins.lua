@@ -25,9 +25,8 @@ return require('packer').startup(function()
     -- comment management
     use 'b3nj5m1n/kommentary'
 
-    -- fzf (binaries and plugin)
-    use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
-    use 'junegunn/fzf.vim'
+    use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- status line
     use 'nvim-lualine/lualine.nvim'

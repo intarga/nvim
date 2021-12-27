@@ -19,17 +19,19 @@ function keys.setup()
     map('n', '<Leader>x', ':noh<CR>', n)
 
     -- buffer Navigation
-    --map('n', '<Leader>b',     ':buffers<CR>:buffer<Space>', n) -- version without fzf plugin
-    map('n', '<Leader>b',     ':Buffers<CR>',    n) -- requires fzf
-    map('n', '<Tab>',         ':bn<CR>',         ns)
-    map('n', '<S-Tab>',       ':bp<CR>',         ns)
-    map('n', '<Leader>q',     ':bdelete<CR>',    ns)
-    map('n', '<Leader>o',     ':edit<Space>',    n)
-    map('n', '<Leader>h',     ':set hidden<CR>', ns)
+    --map('n', '<Leader>b',     ':buffers<CR>:buffer<Space>', n) -- version without telescope
+    map('n', '<Leader>b', ':Telescope buffers<CR>', n) -- requires telescope
+    map('n', '<Tab>',     ':bn<CR>',                ns)
+    map('n', '<S-Tab>',   ':bp<CR>',                ns)
+    map('n', '<Leader>q', ':bdelete<CR>',           ns)
+    map('n', '<Leader>o', ':edit<Space>',           n)
+    -- map('n', '<Leader>h',     ':set hidden<CR>', ns) -- careful: conflict
 
-    -- fzf todo: Gfiles support?
-    map('n', '<Leader>f',     ':Files<Space>.<CR>',       n)
-    map('n', '<Leader>r',     ':Rg<Space><C-R><C-W><CR>', n)
+    -- telescope
+    map('n', '<Leader>f', ':Telescope find_files<CR>',  n)
+    map('n', '<Leader>r', ':Telescope grep_string<CR>', n)
+    map('n', '<Leader>l', ':Telescope live_grep<CR>',   n)
+    map('n', '<Leader>h', ':Telescope help_tags<CR>',   n)
 
     -- completion
     map('i', '<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]],   ne)
