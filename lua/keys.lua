@@ -15,6 +15,14 @@ function keys.setup()
     -- find and replace
     map('n', 'S', ':%s//gc<Left><Left><Left>', n)
 
+    -- insert newlines
+    map('n', '] ', '<Cmd>lua insert_newline(true)<CR>',  n)
+    map('n', '[ ', '<Cmd>lua insert_newline(false)<CR>', n)
+
+    -- move lines
+    map('n', ']m', ':move +<CR>',  n)
+    map('n', '[m', ':move --<CR>',  n)
+
     -- clear highlight
     map('n', '<Leader>x', ':noh<CR>', n)
 
