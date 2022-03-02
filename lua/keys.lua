@@ -51,9 +51,9 @@ function keys.setup()
     map('n', 'gi',          '<Cmd>lua vim.lsp.buf.implementation()<CR>',                n)
     map('n', 'gr',          '<Cmd>lua vim.lsp.buf.references()<CR>',                    ns)
     map('n', 'gh',          '<Cmd>lua vim.lsp.buf.hover()<CR>',                         ns)
-    map('n', '<Leader>e',   '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>',  ns)
-    map('n', '[d',          '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',              ns)
-    map('n', ']d',          '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>',              ns)
+    map('n', '<Leader>e',   '<Cmd>lua vim.diagnostic.open_float({scope="cursor"})<CR>',  ns)
+    map('n', '[d',          '<Cmd>lua vim.diagnostic.goto_prev()<CR>',              ns)
+    map('n', ']d',          '<Cmd>lua vim.diagnostic.goto_next()<CR>',              ns)
 end
 
 return keys
