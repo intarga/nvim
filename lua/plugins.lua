@@ -13,7 +13,7 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
-    -- packer itself
+    -- packer plugin manager itself
     use {'wbthomason/packer.nvim', opt = true}
 
     -- autoclose brackets, quotes, etc.
@@ -22,16 +22,17 @@ return require('packer').startup(function()
     -- comment management
     use 'b3nj5m1n/kommentary'
 
+    -- search tools
     use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- status line
     use 'nvim-lualine/lualine.nvim'
 
-    -- treesitter
+    -- syntax highlighting
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-    -- lsp
+    -- language server
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
     --use 'hrsh7th/vim-vsnip'
