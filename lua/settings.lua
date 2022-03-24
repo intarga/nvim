@@ -34,9 +34,6 @@ function settings.setup()
     -- redo when api is fixed...
     cmd('colorscheme alnj')
 
-    -- python
-    cmd('let g:python3_host_prog="/usr/bin/python3"')
-
     -- lsp diagnostic signs
     cmd('sign define LspDiagnosticsSignError text=> texthl=LspDiagnosticsSignError linehl= numhl=')
     cmd('sign define LspDiagnosticsSignWarning text=! texthl=LspDiagnosticsSignWarning linehl= numhl=')
