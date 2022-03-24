@@ -19,9 +19,6 @@ return require('packer').startup(function()
     -- autoclose brackets, quotes, etc.
     use 'tmsvg/pear-tree'
 
-    -- automatic formatting
-    use 'Chiel92/vim-autoformat'
-
     -- comment management
     use 'b3nj5m1n/kommentary'
 

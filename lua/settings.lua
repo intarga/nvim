@@ -55,7 +55,7 @@ function settings.setup()
     cmd([[autocmd BufNewFile,BufRead,FileType,OptionSet * setlocal formatoptions-=cro]])
 
     -- Autoformat on write
-    cmd([[autocmd BufWrite *.rs,*.go,*.lua,*.py :Autoformat]])
+    cmd([[autocmd BufWrite *.rs,*.go,*.lua,*.py,*.sh :lua vim.lsp.buf.formatting_sync()]])
 
     -- disable matchparen in insert mode
     cmd([[autocmd InsertEnter * NoMatchParen]])
@@ -152,7 +152,34 @@ function settings.setup()
     -- LSP
     local lspconfig = require'lspconfig'
     lspconfig.gopls.setup{}
-    lspconfig.rust_analyzer.setup({})
+    lspconfig.rust_analyzer.setup{}
+    lspconfig.efm.setup {
+        init_options = {documentFormatting = true},
+        filetypes = { 'lua','sh','python' },
+        settings = {
+            rootMarkers = {".git/"},
+            languages = {
+                lua = {
+                    {formatCommand = "lua-format -i", formatStdin = true}
+                },
+                sh = {
+                    {
+                        lintCommand = "shellcheck -f gcc -x",
+                        lintSource = "shellcheck",
+                        lintFormats = {
+                            "%f:%l:%c: %trror: %m",
+                            "%f:%l:%c: %tarning: %m",
+                            "%f:%l:%c: %tote: %m"
+                        }
+                    },
+                    {formatCommand = "shfmt -ci -s -bn", formatStdin = true}
+                },
+                python = {
+                    {formatCommand = "black --quiet -", formatStdin = true}
+                }
+            }
+        }
+    }
 
     require'compe'.setup {
         enabled = true;
