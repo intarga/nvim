@@ -61,6 +61,9 @@ function settings.setup()
     -- Kommentary
     --vim.g.kommentary_create_default_mappings = false
     --require('kommentary.config').use_extended_mappings()
+    require('kommentary.config').configure_language("default", {
+        prefer_single_line_comments = true,
+    })
 
     local telescope = require('telescope')
     telescope.setup {
