@@ -150,6 +150,7 @@ function settings.setup()
     local lspconfig = require'lspconfig'
     lspconfig.gopls.setup{}
     lspconfig.rust_analyzer.setup{}
+    lspconfig.pyright.setup{}
     lspconfig.efm.setup {
         init_options = {documentFormatting = true},
         filetypes = { 'lua','sh','python' },
