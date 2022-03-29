@@ -19,6 +19,7 @@ highlight LineNr       ctermfg=grey
 highlight CursorLineNr ctermfg=1                 cterm=bold
 highlight StatusLine   ctermfg=9    ctermbg=NONE cterm=bold guifg=#ffff00 guibg=#0000ff gui=none
 highlight SignColumn                ctermbg=NONE
+highlight VertSplit    ctermfg=0    ctermbg=NONE cterm=bold
 
 highlight Pmenu        ctermfg=4    ctermbg=0                             guibg=grey
 highlight PmenuSel     ctermfg=1    ctermbg=0               guifg=#dddd00 guibg=#1f82cd
