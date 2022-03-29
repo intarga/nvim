@@ -36,6 +36,17 @@ function keys.setup()
     map('n', '<Leader>o', ':edit<Space>',           n)
     -- map('n', '<Leader>h',     ':set hidden<CR>', ns) -- careful: conflict
 
+    -- embrace
+    map('n', ')',              ':EmbraceNext<CR>',       n)
+    map('n', '(',              ':EmbracePrev<CR>',       n)
+    map('n', '<LocalLeader>i', ':EmbraceInsertList<CR>', n)
+    map('n', '<LocalLeader>a', ':EmbraceAppendList<CR>', n)
+    map('n', '<LocalLeader>w', ':EmbraceInsertElem<CR>', n)
+    map('n', '<LocalLeader>W', ':EmbraceAppendElem<CR>', n)
+    map('n', '<LocalLeader>s', ':EmbraceSlurpBack<CR>',  n)
+    map('n', '<LocalLeader>S', ':EmbraceSlurpForth<CR>', n)
+    map('n', '<LocalLeader>@', ':EmbraceSplice<CR>',     n)
+
     -- telescope
     map('n', '<Leader>f', ':Telescope find_files<CR>',  n)
     map('n', '<Leader>r', ':Telescope grep_string<CR>', n)

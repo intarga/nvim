@@ -19,6 +19,10 @@ return require('packer').startup(function()
     -- autoclose brackets, quotes, etc.
     use 'tmsvg/pear-tree'
 
+    -- s-exp tools
+    use '~/etc/embrace'
+    -- use 'guns/vim-sexp'
+
     -- comment management
     use 'b3nj5m1n/kommentary'
 
