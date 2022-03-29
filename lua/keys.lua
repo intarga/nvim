@@ -36,6 +36,12 @@ function keys.setup()
     map('n', '<Leader>o', ':edit<Space>',           n)
     -- map('n', '<Leader>h',     ':set hidden<CR>', ns) -- careful: conflict
 
+    -- split navigation
+    map('n', '<Leader>h', '<C-w>h', n)
+    map('n', '<Leader>j', '<C-w>j', n)
+    map('n', '<Leader>k', '<C-w>k', n)
+    map('n', '<Leader>l', '<C-w>l', n)
+
     -- embrace
     map('n', ')',              ':EmbraceNext<CR>',       n)
     map('n', '(',              ':EmbracePrev<CR>',       n)
@@ -50,8 +56,8 @@ function keys.setup()
     -- telescope
     map('n', '<Leader>f', ':Telescope find_files<CR>',  n)
     map('n', '<Leader>r', ':Telescope grep_string<CR>', n)
-    map('n', '<Leader>l', ':Telescope live_grep<CR>',   n)
-    map('n', '<Leader>h', ':Telescope help_tags<CR>',   n)
+    map('n', '<Leader>g', ':Telescope live_grep<CR>',   n)
+    -- map('n', '<Leader>h', ':Telescope help_tags<CR>',   n) -- careful: conflict
 
     -- conjure
     map('n', '<LocalLeader>b', '<Cmd>lua vim.g[\'conjure#log#hud#enabled\'] = not vim.g[\'conjure#log#hud#enabled\']<CR>', n)
