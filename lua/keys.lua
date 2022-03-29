@@ -42,6 +42,9 @@ function keys.setup()
     map('n', '<Leader>l', ':Telescope live_grep<CR>',   n)
     map('n', '<Leader>h', ':Telescope help_tags<CR>',   n)
 
+    -- conjure
+    map('n', '<LocalLeader>b', '<Cmd>lua vim.g[\'conjure#log#hud#enabled\'] = not vim.g[\'conjure#log#hud#enabled\']<CR>', n)
+
     -- completion
     map('i', '<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]],   ne)
     map('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], ne)

@@ -29,6 +29,9 @@ return require('packer').startup(function()
     -- status line
     use 'nvim-lualine/lualine.nvim'
 
+    -- lisp repl integration
+    use 'Olical/conjure'
+
     -- syntax highlighting
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 

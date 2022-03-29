@@ -58,6 +58,15 @@ function settings.setup()
     cmd([[autocmd InsertEnter * NoMatchParen]])
     cmd([[autocmd InsertLeave * DoMatchParen]])
 
+    -- conjure
+    vim.g['conjure#log#hud#anchor'] = "SE"
+    vim.g['conjure#log#hud#border'] = "none"
+    vim.g['conjure#eval#inline#prefix'] = "-> "
+    vim.g['conjure#log#hud#width'] = 1.0
+    vim.g['conjure#log#hud#enabled'] = false
+    vim.g['conjure#mapping#eval_current_form'] = "f"
+    vim.g['conjure#mapping#eval_comment_current_form'] = "c"
+
     -- Kommentary
     --vim.g.kommentary_create_default_mappings = false
     --require('kommentary.config').use_extended_mappings()
