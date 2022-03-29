@@ -7,6 +7,7 @@ local keys = {}
 
 function keys.setup()
     g.mapleader = " "
+    g.maplocalleader = ","
 
     -- the sloth way to send commands
     map('n', ';', ':', {})
