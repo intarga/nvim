@@ -157,6 +157,7 @@ function settings.setup()
         --checks parser is maintained
         ensure_installed = "maintained",
         highlight = { enable = true },
+        -- indent = { enable = true },
     }
 
     -- LSP
