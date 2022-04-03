@@ -74,6 +74,7 @@ function settings.setup()
         prefer_single_line_comments = true,
     })
 
+    -- telescope
     local telescope = require('telescope')
     telescope.setup {
         defaults = require('telescope.themes').get_dropdown {
