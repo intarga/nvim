@@ -21,7 +21,7 @@ function keys.setup()
     map('n', '[ ', '<Cmd>lua insert_newline(false)<CR>', n)
 
     -- move lines
-    map('n', ']m', ':move +<CR>',  n)
+    map('n', ']m', ':move +<CR>',   n)
     map('n', '[m', ':move --<CR>',  n)
 
     -- clear highlight
