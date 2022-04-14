@@ -52,7 +52,7 @@ function settings.setup()
     cmd([[autocmd BufNewFile,BufRead,FileType,OptionSet * setlocal formatoptions-=cro]])
 
     -- Autoformat on write
-    cmd([[autocmd BufWrite *.rs,*.go,*.lua,*.py,*.sh :lua vim.lsp.buf.formatting_sync()]])
+    cmd([[autocmd BufWrite *.rs,*.go,*.lua,*.py,*.sh,*.css,*.html :lua vim.lsp.buf.formatting_sync()]])
 
     -- disable matchparen in insert mode
     cmd([[autocmd InsertEnter * NoMatchParen]])
@@ -167,7 +167,7 @@ function settings.setup()
     lspconfig.pyright.setup{}
     lspconfig.efm.setup {
         init_options = {documentFormatting = true},
-        filetypes = { 'lua','sh','python' },
+        filetypes = { 'lua','sh','python','css','html' },
         settings = {
             rootMarkers = {".git/"},
             languages = {
@@ -188,7 +188,13 @@ function settings.setup()
                 },
                 python = {
                     {formatCommand = "black --quiet -", formatStdin = true}
-                }
+                },
+                css = {
+                    {formatCommand = "prettier --parser css", formatStdin = true}
+                },
+                html = {
+                    {formatCommand = "prettier --parser html", formatStdin = true}
+                },
             }
         }
     }
