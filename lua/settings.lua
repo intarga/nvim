@@ -1,4 +1,4 @@
-local cmd, o, b, w = vim.api.nvim_command, vim.o, vim.bo, vim.wo
+local cmd, o, b, w, au = vim.api.nvim_command, vim.o, vim.bo, vim.wo, vim.api.nvim_create_autocmd
 local settings = {}
 
 function settings.setup()
@@ -41,22 +41,29 @@ function settings.setup()
     cmd('sign define LspDiagnosticsSignHint text=H texthl=LspDiagnosticsSignHint linehl= numhl=')
 
     -- Resume where we left off when opening a file
-    cmd([[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]])
+    au("BufReadPost", {
+        pattern = "*",
+        command = [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]]
+    })
 
     -- Remove trailing whitespace on write
-    cmd([[autocmd BufWritePre * %s/\s\+$//e]])
+    au("BufWritePre", { pattern = "*", command = [[%s/\s\+$//e]] })
 
     -- Disable automatic commenting on newline
-    --cmd([[autocmd FileType * setlocal formatoptions-=cro]])
-    cmd([[autocmd BufNewFile,BufRead,FileType,OptionSet * set formatoptions-=cro]])
-    cmd([[autocmd BufNewFile,BufRead,FileType,OptionSet * setlocal formatoptions-=cro]])
+    au({ "BufNewFile", "BufRead", "FileType", "OptionSet" }, {
+        pattern = "*",
+        command = "set formatoptions-=cro | setlocal formatoptions-=cro"
+    })
 
     -- Autoformat on write
-    cmd([[autocmd BufWrite *.rs,*.go,*.lua,*.py,*.sh,*.css,*.html :lua vim.lsp.buf.formatting_sync()]])
+    au("BufWrite", {
+        pattern = { "*.rs", "*.go", "*.lua", "*.py", "*.sh", "*.css", "*.html"},
+        callback = vim.lsp.buf.formatting_sync -- consider seq_sync?
+    })
 
     -- disable matchparen in insert mode
-    cmd([[autocmd InsertEnter * NoMatchParen]])
-    cmd([[autocmd InsertLeave * DoMatchParen]])
+    au("InsertEnter", { pattern = "*", command = "NoMatchParen" })
+    au("InsertLeave", { pattern = "*", command = "DoMatchParen" })
 
     -- conjure
     vim.g['conjure#log#hud#anchor'] = "SE"
