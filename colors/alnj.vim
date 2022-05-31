@@ -29,28 +29,31 @@ highlight Visual                    ctermbg=0
 highlight Search				    ctermbg=4							  guibg=#c0c000
 highlight Todo		   ctermfg=1	ctermbg=NONE			guifg=#000080 guibg=#c0c000
 
-" language constructs
-
 highlight MatchParen   ctermfg=1    ctermbg=0    cterm=bold
 
-highlight Comment	   ctermfg=4				 cterm=none guifg=#808080
-highlight Constant	   ctermfg=1			     cterm=none guifg=#00ffff		   	    gui=none
+" language constructs
 
-highlight Identifier   ctermfg=14				 cterm=none guifg=#00c0c0
+highlight Comment	   ctermfg=4				 cterm=none   guifg=#808080
+highlight Constant	   ctermfg=1			     cterm=none   guifg=#00ffff		   	      gui=none
+
+highlight Identifier   ctermfg=14				 cterm=none   guifg=#00c0c0
 highlight Function     ctermfg=6                 cterm=bold
 "highlight Structure                              cterm=bold
 "highlight StorageClass                           cterm=bold
 "highlight Typedef                                cterm=bold
 
-highlight Statement    ctermfg=1			     cterm=bold guifg=#c0c000			    gui=bold
+highlight Statement    ctermfg=1			     cterm=bold   guifg=#c0c000			      gui=bold
 
-highlight PreProc	   ctermfg=10						    guifg=#00ff00
-highlight Type		   ctermfg=2						    guifg=#00c000
-highlight Special	   ctermfg=5						    guifg=#0000ff
+highlight PreProc	   ctermfg=6				 cterm=italic guifg=#00ff00
+" highlight Include      ctermfg=10                cterm=bold,italic
+highlight Macro        ctermfg=5                 cterm=bold,italic
 
-highlight Error					    ctermbg=9							  guibg=#ff0000
+highlight Type		   ctermfg=2						      guifg=#00c000
+highlight Special	   ctermfg=5						      guifg=#0000ff
 
-highlight Directory    ctermfg=2						    guifg=#00c000
+highlight Error					    ctermbg=9				    	        guibg=#ff0000
+
+highlight Directory    ctermfg=2						      guifg=#00c000
 
 highlight Title        ctermfg=1                 cterm=bold
 
