@@ -16,6 +16,11 @@ function keys.setup()
     -- find and replace
     map('n', 'S', ':%s//gc<Left><Left><Left>', n)
 
+    -- non-overwriting paste
+    map('n', '<Leader>p', '"0p', n)
+    map('n', '<Leader>P', '"0P', n)
+    map('v', '<Leader>p', '"0p', n)
+
     -- insert newlines
     map('n', '] ', '<Cmd>lua insert_newline(true)<CR>',  n)
     map('n', '[ ', '<Cmd>lua insert_newline(false)<CR>', n)
