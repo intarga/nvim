@@ -148,7 +148,7 @@ return require('lazy').setup({
         build = ':TSUpdate',
         config = function()
             require'nvim-treesitter.configs'.setup {
-                ensure_installed = "all",
+                ensure_installed = { "c", "lua", "rust", "go", "css", "python", "javascript", "markdown", "haskell" },
                 highlight = { enable = true },
                 -- indent = { enable = true },
             }
