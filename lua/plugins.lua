@@ -19,7 +19,11 @@ return require('lazy').setup({
     'tmsvg/pear-tree',
 
     -- s-exp tools
-    { dir = '~/etc/embrace' },
+    {
+        'intarga/embrace.nvim',
+        ft = 'scheme',
+        dev = true
+    },
     -- 'guns/vim-sexp',
 
     -- comment management
@@ -270,4 +274,10 @@ return require('lazy').setup({
             -- }
         end
     },
+},
+{
+    dev = {
+        path = "~/etc",
+        fallback = true,
+    }
 })
