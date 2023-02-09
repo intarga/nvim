@@ -3,3 +3,4 @@ plugin/*
 .netrwhist
 node_modules/*
 package-lock.json
+lazy-lock.json

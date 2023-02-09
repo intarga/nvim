@@ -1,43 +1,42 @@
-local execute = vim.api.nvim_command
-local fn = vim.fn
-
--- install packer automatically if we don't have it
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
-
-if fn.empty(fn.glob(install_path)) > 0 then
-    execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-    execute 'packadd packer.nvim'
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
---because packer is in opt
-vim.cmd [[packadd packer.nvim]]
-
-return require('packer').startup(function()
-    -- packer plugin manager itself
-    use {'wbthomason/packer.nvim', opt = true}
+return require('lazy').setup({
+    -- lazy itself
+    'folke/lazy.nvim',
 
     -- autoclose brackets, quotes, etc.
-    use 'tmsvg/pear-tree'
+    'tmsvg/pear-tree',
 
     -- s-exp tools
-    use '~/etc/embrace'
-    -- use 'guns/vim-sexp'
+    { dir = '~/etc/embrace' },
+    -- 'guns/vim-sexp',
 
     -- comment management
-    use {
+    {
         'b3nj5m1n/kommentary',
         config = function()
-            require('kommentary.config').configure_language("default", {
+            require('kommentary.config').configure_language('default', {
                 prefer_single_line_comments = true,
             })
         end
-    }
+    },
 
 
     -- search tools
-    use {
+    {
         'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} },
+        dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
             local telescope = require('telescope')
             telescope.setup {
@@ -51,17 +50,17 @@ return require('packer').startup(function()
                         fuzzy = true, -- false will only do exact matching
                         override_generic_sorter = true,
                         override_file_sorter = true,
-                        case_mode = "smart_case",
+                        case_mode = 'smart_case',
                     }
                 }
             }
             telescope.load_extension('fzf')
         end
-    }
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    },
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
     -- status line
-    use {
+    {
         'nvim-lualine/lualine.nvim',
         config = function()
             local my16color = {
@@ -119,10 +118,10 @@ return require('packer').startup(function()
                 },
             }
         end
-    }
+    },
 
     -- lisp repl integration
-    use {
+    {
         'Olical/conjure',
         config = function()
             vim.g['conjure#log#hud#anchor'] = "SE"
@@ -134,12 +133,12 @@ return require('packer').startup(function()
             vim.g['conjure#mapping#eval_comment_current_form'] = "c"
         end,
         ft = 'scheme'
-    }
+    },
 
     -- syntax highlighting
-    use {
+    {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
+        build = ':TSUpdate',
         config = function()
             require'nvim-treesitter.configs'.setup {
                 ensure_installed = "all",
@@ -147,10 +146,10 @@ return require('packer').startup(function()
                 -- indent = { enable = true },
             }
         end
-    }
+    },
 
     -- language server
-    use {
+    {
         'neovim/nvim-lspconfig',
         config = function()
             -- LSP
@@ -192,14 +191,14 @@ return require('packer').startup(function()
                 }
             }
         end
-    }
+    },
 
     -- autocompletion
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    {
         'hrsh7th/nvim-cmp',
         config = function()
             local cmp = require'cmp'
@@ -270,5 +269,5 @@ return require('packer').startup(function()
             --     capabilities = capabilities
             -- }
         end
-    }
-end)
+    },
+})
