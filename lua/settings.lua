@@ -55,7 +55,7 @@ function settings.setup()
     -- Autoformat on write
     au("BufWrite", {
         pattern = { "*.rs", "*.go", "*.lua", "*.py", "*.sh", "*.css", "*.html"},
-        callback = vim.lsp.buf.format
+        callback = function(ev) vim.lsp.buf.format() end
     })
 
     -- disable matchparen in insert mode
