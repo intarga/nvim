@@ -16,7 +16,10 @@ return require('lazy').setup({
     'folke/lazy.nvim',
 
     -- autoclose brackets, quotes, etc.
-    'tmsvg/pear-tree',
+    {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    },
 
     -- s-exp tools
     {
