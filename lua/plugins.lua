@@ -24,7 +24,7 @@ return require('lazy').setup({
     -- s-exp tools
     {
         'intarga/embrace.nvim',
-        ft = 'scheme',
+        ft = {'scheme', 'racket'},
         dev = true
     },
     -- 'guns/vim-sexp',
@@ -135,11 +135,16 @@ return require('lazy').setup({
             vim.g['conjure#log#hud#border'] = "none"
             vim.g['conjure#eval#inline#prefix'] = "-> "
             vim.g['conjure#log#hud#width'] = 1.0
-            vim.g['conjure#log#hud#enabled'] = false
+            vim.g['conjure#log#hud#enabled'] = true
             vim.g['conjure#mapping#eval_current_form'] = "f"
             vim.g['conjure#mapping#eval_comment_current_form'] = "c"
         end,
-        ft = 'scheme'
+        ft = {'scheme', 'racket'}
+    },
+
+    {
+        'benknoble/vim-racket',
+        ft = 'racket'
     },
 
     -- syntax highlighting
