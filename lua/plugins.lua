@@ -1,3 +1,6 @@
+local map = vim.api.nvim_set_keymap
+local n = { noremap = true }
+
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -25,7 +28,18 @@ return require('lazy').setup({
     {
         'intarga/embrace.nvim',
         ft = {'scheme', 'racket'},
-        dev = true
+        dev = true,
+        config = function()
+            map('n', ')',              ':EmbraceNext<CR>',       n)
+            map('n', '(',              ':EmbracePrev<CR>',       n)
+            map('n', '<LocalLeader>i', ':EmbraceInsertList<CR>', n)
+            map('n', '<LocalLeader>a', ':EmbraceAppendList<CR>', n)
+            map('n', '<LocalLeader>w', ':EmbraceInsertElem<CR>', n)
+            map('n', '<LocalLeader>W', ':EmbraceAppendElem<CR>', n)
+            map('n', '<LocalLeader>s', ':EmbraceSlurpBack<CR>',  n)
+            map('n', '<LocalLeader>S', ':EmbraceSlurpForth<CR>', n)
+            map('n', '<LocalLeader>@', ':EmbraceSplice<CR>',     n)
+        end
     },
     -- 'guns/vim-sexp',
 
